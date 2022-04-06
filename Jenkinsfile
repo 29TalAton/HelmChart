@@ -7,9 +7,7 @@ pipeline{
     stages{
         stage("Deploy to Dev") {
             when {
-                expression {
                    Action == 'Deploy'
-                   }
             }
             steps {
                  sh "helm install simple-web-app devops-tal/ --values devops-tal/values.yaml --namespace tal"
