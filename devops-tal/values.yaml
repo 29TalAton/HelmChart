@@ -63,7 +63,7 @@ ingress:
   #        - "*.cloud.ajw-group.com"
   #      secretName: onion.api.environment.cloud.google.com-tls
   hosts:
-    - host: onion.api.environment.cloud.google.com
+    - host: 20.86.187.2
       #http:
       paths:
       - /tal
