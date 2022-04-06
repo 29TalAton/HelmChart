@@ -12,7 +12,7 @@ pipeline{
         }
     }
             steps {
-                 sh "helm install simple-web-app devops-tal/ --values devops-tal/values.yaml --namespace tal"
+                 sh "helm install $Name devops-tal/ --values devops-tal/values.yaml --namespace tal"
                  }
         }
         
@@ -23,7 +23,7 @@ pipeline{
         }
     }
             steps {
-                 sh "helm delete simple-web-app"
+                 sh "helm delete $Name"
                  }
         }
     }
