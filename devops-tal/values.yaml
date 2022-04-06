@@ -41,21 +41,32 @@ service:
   port: 80
 
 ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
+  name: external
+  enabled: true
+  type: LoadBalancer
+  #loadBalancerSourceRanges: ["0.0.0.0/0"]
+  #externalPort: 443
+  #internalPort: 80
+  annotations:
+    kubernetes.io/ingress.class: "nginx-environment"
+    nginx.ingress.kubernetes.io/rewrite-target: "/"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS, HEAD"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "*"
+    nginx.ingress.kubernetes.io/cors-max-age: "3600"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
   tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
+  #    - hosts:
+  #        - "onion.api.environment.cloud.google.com"
+  #        - "*.cloud.ajw-group.com"
+  #      secretName: onion.api.environment.cloud.google.com-tls
+  hosts:
+    - host: onion.api.environment.cloud.google.com
+      #http:
+      paths:
+      - /tal
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
