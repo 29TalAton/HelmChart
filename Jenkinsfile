@@ -3,7 +3,7 @@ pipeline{
     parameters {
         string(name: "Name", defaultValue: "simple-web-app", description: "please enter deployment name")
         choice(name: 'Action', choices: 'Deploy\nDestroy\n', description: "")
-        
+    }   
     stages{
         stage("Deploy to Dev") {
             when {
@@ -16,5 +16,4 @@ pipeline{
                  }
         }
     }
-  }
 }
