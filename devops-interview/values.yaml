@@ -11,8 +11,8 @@ image:
   tag: ""
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+  nameOverride: "devops-interview"
+  fullnameOverride: "DevOpe-Interview"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -21,7 +21,7 @@ serviceAccount:
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: "taldev"
+  name: "DevOpsAccount"
 
 podAnnotations: {}
 
@@ -37,7 +37,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 80
 
 ingress:
