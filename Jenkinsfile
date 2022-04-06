@@ -15,5 +15,16 @@ pipeline{
                  sh "helm install simple-web-app devops-tal/ --values devops-tal/values.yaml --namespace tal"
                  }
         }
+        
+        stage("Destroy") {
+            when {
+        expression {
+            params.Action == 'Destroy'
+        }
+    }
+            steps {
+                 sh "helm delete simple-web-app"
+                 }
+        }
     }
 }
