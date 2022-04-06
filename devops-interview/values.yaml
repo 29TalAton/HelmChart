@@ -35,9 +35,9 @@ ingress:
       #http:
       paths:
       - /
-kubectl create namespace airflow
-helm install airflow apache-airflow/airflow \
-    --namespace airflow \
-    --set executor=CeleryExecutor \
-    --set workers.keda.enabled=true
+##kubectl create namespace airflow
+##helm install airflow apache-airflow/airflow \
+    ##--namespace airflow \
+    ##--set executor=CeleryExecutor \
+    ##--set workers.keda.enabled=true
 
