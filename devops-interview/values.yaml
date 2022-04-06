@@ -1,19 +1,19 @@
 image:
-	repository: simple-web
-	pullpolicy: Always
-	tag: ""
-	imagePullSecrets: []
-	nameOverride: "devops-interview"
-	fullnameOverride: "DevOpe-Interview"
+        repository: simple-web
+        pullpolicy: Always
+        tag: ""
+        imagePullSecrets: []
+        nameOverride: "devops-interview"
+        fullnameOverride: "DevOpe-Interview"
 serviceAccount:
-	create: true
-	annotatons: {}
-	name: "DevOpsAccount"
+        create: true
+        annotatons: {}
+        name: "DevOpsAccount"
 service:
-	type: NodePort
-	port: 80
+        type: NodePort
+        port: 80
 ingress:
-  name: external
+  name: external 
   enabled: true
   type: LoadBalancer
   #loadBalancerSourceRanges: ["0.0.0.0/0"]
