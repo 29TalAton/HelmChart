@@ -8,7 +8,7 @@ pipeline{
         stage("Deploy to Dev") {
             when {
         expression {
-            Action = 'Deploy'
+            Action == 'Deploy'
         }
     }
             steps {
