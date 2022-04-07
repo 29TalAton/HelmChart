@@ -37,8 +37,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 8181
+  type: NodePort
+  port: 3001
 
 ingress:
   name: external
