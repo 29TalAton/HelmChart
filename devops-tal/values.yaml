@@ -11,8 +11,8 @@ image:
   tag: "latest"
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: "devops-tal"
+fullnameOverride: "devops-tal-chart"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -21,7 +21,7 @@ serviceAccount:
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: ""
+  name: "devtal"
 
 podAnnotations: {}
 
@@ -93,3 +93,24 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+keda: # KEDA (Kubernetes Event-Driven Autoscaler)
+  enabled: true # KEDA is disabled by default
+  name: simple-web-app-keda
+  authRefName: auth-trigger-simple-web-app
+  scaleTargetRef: simple-web-app # service you would like to scale up/down
+  minReplicaCount: 1
+  maxReplicaCount: 10
+  triggers:
+  - type: cpu # an example for a KEDA scalar trigger (others also allowed)
+    metadata:
+      type: Utilization
+      value: "50"
+  - type: memory # an example for a KEDA scalar trigger (others also allowed)
+    metadata:
+      type: Utilization
+      value: "50"
+  - type: cron
+    metadata:
+       start: 0 8 * * *
+       end: 0 0 * * *
