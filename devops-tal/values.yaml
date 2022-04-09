@@ -64,7 +64,6 @@ ingress:
   #        - "*.cloud.ajw-group.com"
   #      secretName: onion.api.environment.cloud.google.com-tls
   hosts:
-    - host: tal-interview-vm
       http:
       paths:
       - path: /tal
