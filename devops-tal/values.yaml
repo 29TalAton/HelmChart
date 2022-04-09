@@ -37,6 +37,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
+  name: web-app
   type: NodePort
   port: 80
   targePort: 8181
@@ -69,6 +70,11 @@ ingress:
       paths:
       - path: /tal
         pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web-app
+            port:
+              number: 8181
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
