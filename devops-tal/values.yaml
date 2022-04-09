@@ -98,7 +98,7 @@ keda: # KEDA (Kubernetes Event-Driven Autoscaler)
   enabled: true # KEDA is disabled by default
   name: simple-web-app-keda
   authRefName: auth-trigger-simple-web-app
-  scaleTargetRef: simple-web-app # service you would like to scale up/down
+  scaleTargetRef: simple-web-app 
   minReplicaCount: 1
   maxReplicaCount: 10
   triggers:
