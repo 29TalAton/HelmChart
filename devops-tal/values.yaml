@@ -102,11 +102,11 @@ keda: # KEDA (Kubernetes Event-Driven Autoscaler)
   minReplicaCount: 1
   maxReplicaCount: 10
   triggers:
-  - type: cpu # an example for a KEDA scalar trigger (others also allowed)
+  - type: cpu 
     metadata:
       type: Utilization
       value: "50"
-  - type: memory # an example for a KEDA scalar trigger (others also allowed)
+  - type: memory 
     metadata:
       type: Utilization
       value: "50"
