@@ -38,7 +38,7 @@ securityContext: {}
 
 service:
   name: web-app
-  type: NodePort
+  type: ClusterIP
   port: 80
   targePort: 8181
 
